@@ -6,7 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       Lecture 62 - Create a simple calculator using HTML Forms and Switch
+      Conditional Statments
     </title>
   </head>
-  <body></body>
+  <body>
+    <form style="display: inline-block">
+      <input type="text" name="number1" size="5" />
+      <select name="operator" id="">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="text" name="number2" size="5" />
+      <input type="button" value="=" onclick="equalTo('OK')" />
+    </form>
+    <span id="result" style="display: inline-block"></span>
+    <script>
+      let n1 = document.querySelector("input[name='number1']");
+      let n2 = document.querySelector("input[name='number2']");
+
+      let rslt = document.getElementById("result");
+      let op = document.querySelector('select[name="operator"]');
+      function equalTo() {
+        var x = parseFloat(n1.value);
+        var y = parseFloat(n2.value);
+        console.log(op.value);
+        switch (op.value) {
+          case "+":
+            console.log(x + x);
+            rslt.innerHTML = x + y;
+            break;
+          case "-":
+            console.log(x - y);
+            rslt.innerHTML = x - y;
+            break;
+          case "*":
+            console.log(x * y);
+            rslt.innerHTML = x * y;
+            break;
+          case "/":
+            console.log(x / y);
+            rslt.innerHTML = x / y;
+            break;
+
+          default:
+            console.log("Invalid");
+        }
+      }
+    </script>
+  </body>
 </html>
